@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create']);
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::get('login', [AuthenticatedSessionController::class, 'login']);
+    Route::post('login', [AuthenticatedSessionController::class, 'login']);
 
-    Route::get('register', [RegisteredUserController::class, 'create']);
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::get('register', [RegisteredUserController::class, 'register']);
+    Route::post('register', [RegisteredUserController::class, 'register']);
 
-    Route::get('add', [RegisteredUserController::class, 'add']);
-    Route::post('add', [RegisteredUserController::class, 'add']);
+    Route::get('added', [RegisteredUserController::class, 'added']);
+    Route::post('added', [RegisteredUserController::class, 'added']);
 
 });
 
