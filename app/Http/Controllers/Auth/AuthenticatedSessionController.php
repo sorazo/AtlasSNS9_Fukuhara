@@ -15,21 +15,21 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
+    public function create(): View
+    {
+        return view('auth.login');
+    }
+
     /**
      * Handle an incoming authentication request.
      */
-    public function login(Request $request)
+    public function store(LoginRequest $request): RedirectResponse
     {
-        if ($request->isMethod('post')) {
+        $request->authenticate();
 
-            $data = $request->only('mail', 'password');
-            // ログインが成功したら、トップページへ
-            //↓ログイン条件は公開時には消すこと
-            if (Auth::attempt($data)) {
-                return redirect('/top');
-            }
-        }
-        return view('auth.login');
+        $request->session()->regenerate();
+
+        return redirect()->intended('top');
     }
 
     /**

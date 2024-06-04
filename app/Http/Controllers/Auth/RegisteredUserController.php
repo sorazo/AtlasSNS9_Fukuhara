@@ -18,30 +18,29 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
+    public function create(): View
+    {
+        return view('auth.register');
+    }
+
     /**
      * Handle an incoming registration request.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function register(Request $request){
-        if($request->isMethod('post')){
-
-            $username = $request->input('username');
-            $mail = $request->input('mail');
-            $password = $request->input('password');
-
-            User::create([
-                'username' => $username,
-                'mail' => $mail,
-                'password' => Hash::make($password),
-            ]);
+    public function store(Request $request): RedirectResponse
+    {
+            $user = User::create([
+            'username' => $request->username,
+            'mail' => $request->mail,
+            'password' => Hash::make($request->password),
+        ]);
 
             return redirect('added');
-        }
-        return view('auth.register');
     }
 
-    public function added(){
+    public function added(): View
+    {
         return view('auth.added');
     }
 }
