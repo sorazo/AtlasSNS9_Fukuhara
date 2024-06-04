@@ -1,13 +1,19 @@
         <div id="head">
-            <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
+            <h1><a href="top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
+            <div id="head_auth">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>{{ Auth::user()->username }}さん</p>
                 </div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+                <div class="accordion" id="accordionExample">
+                    <div>
+                        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne"></button>
+                        <ul id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <li><a href="top">ホーム</a></li>
+                            <li><a href="profile">プロフィール</a></li>
+                            <li><a href="logout">ログアウト</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="{{ asset('images/'.Auth::user()->images) }}">
             </div>
         </div>

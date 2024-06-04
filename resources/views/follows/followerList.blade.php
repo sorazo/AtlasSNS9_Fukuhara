@@ -1,4 +1,6 @@
-@extends('layouts.login')
+<x-login-layout>
 
-@section('content')
-@endsection
+
+  <h2>フォロワーリスト</h2>
+
+</x-login-layout>

@@ -1,4 +1,6 @@
-@extends('layouts.login')
+<x-login-layout>
 
-@section('content')
-@endsection
+
+  <h2>フォローリスト</h2>
+
+</x-login-layout>
