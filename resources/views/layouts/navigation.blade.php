@@ -14,6 +14,6 @@
                         </ul>
                     </div>
                 </div>
-                <img src="{{ asset('images/'.Auth::user()->images) }}">
+                <img src="{{ asset('storage/'.Auth::user()->images) }}">
             </div>
         </div>

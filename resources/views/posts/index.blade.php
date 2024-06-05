@@ -2,7 +2,7 @@
 <h2>top</h2>
 <!-- 投稿フォーム -->
 <div class="post_create">
-  <img src="{{ asset('images/'.Auth::user()->images) }}">
+  <img src="{{ asset('storage/'.Auth::user()->images) }}">
   <form action="post/store" method="post">
     @csrf
     <div class="post_content">
@@ -18,7 +18,7 @@
 <div class="post_store">
   @foreach($posts as $post)
   <ul>
-    <li><img src="{{ asset('images/'.$post->user->images) }}"></li>
+    <li><img src="{{ asset('storage/'.$post->user->images) }}"></li>
     <li>{{$post->user->username}}</li>
     <li>{{$post->post}}</li>
     <li>{{$post->created_at->format('Y-m-d H:i')}}</li>

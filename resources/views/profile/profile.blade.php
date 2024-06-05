@@ -1,6 +1,9 @@
 <x-login-layout>
 <h2>profile編集</h2>
 <div>
+  <div>
+    <img src="{{ asset('storage/'.$post->user->images) }}"></li>
+  </div>
   <form action="profile/update" method="post" enctype="multipart/form-data">
     @csrf
     <div>

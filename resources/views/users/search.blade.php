@@ -6,7 +6,7 @@
     <form action="search">
       @csrf
       <input type="text" name="keyword" placeholder="ユーザー名">
-      <button type="submit"><img src="{{asset('images/search.png')}}"></button>
+      <button type="submit"><img src="{{asset('storage/search.png')}}"></button>
     </form>
   </div>
   @if(!empty($search))
@@ -20,7 +20,7 @@
   @foreach($users as $user)
     @if($user->id !== Auth::user()->id)
     <ul>
-      <li><img src="{{ asset('images/'.$user->images) }}"></li>
+      <li><img src="{{ asset('storage/'.$user->images) }}"></li>
       <li>{{$user->username}}</li>
       @if(Auth::user()->is_following($user->id))
       <li><a href="{{ route('unfollow',['userId'=>$user->id]) }}" class="btn btn-danger btn-lg">フォロー中</a>

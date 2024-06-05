@@ -3,7 +3,7 @@
 <!-- プロフィール -->
 <div>
   <div>
-    <img src="{{ asset('images/'.$user->images) }}">
+    <img src="{{ asset('storage/'.$user->images) }}">
     <table>
       <tr>
         <th>名前</th>
@@ -27,7 +27,7 @@
 <div>
 @foreach($posts as $post)
   <ul>
-    <li><img src="{{ asset('images/'.$post->user->images) }}"></li>
+    <li><img src="{{ asset('storage/'.$post->user->images) }}"></li>
     <li>{{$post->user->username}}</li>
     <li>{{$post->post}}</li>
     <li>{{$post->created_at->format('Y-m-d H:i')}}</li>
