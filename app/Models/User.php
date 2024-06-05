@@ -37,4 +37,19 @@ class User extends Authenticatable
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    // authがフォロー
+    public function follows(){
+        return $this->belongsToMany(User::class,'follows','following_id','followed_id');
+    }
+
+    // authがフォローされる
+    public function follower(){
+        return $this->belongsToMany(User::class,'follows','following_id','followed_id');
+    }
+
+    // フォローされているかどうか
+    public function is_following($id){
+        return $this->follows()->where('followed_id',$id)->first();
+    }
 }

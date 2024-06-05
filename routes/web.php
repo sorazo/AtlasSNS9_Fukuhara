@@ -38,7 +38,12 @@ Route::get('profile', [ProfileController::class, 'profile']);
 
 Route::get('search', [UsersController::class, 'index']);
 
+Route::get('follow/{userId}', [UsersController::class, 'store'])->name('follow');
+
+Route::get('unfollow/{userId}', [UsersController::class, 'destroy'])->name('unfollow');
+
 Route::get('follow-list', [UsersController::class, 'followList']);
+
 Route::get('follower-list', [UsersController::class, 'followerList']);
 
 });
