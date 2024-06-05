@@ -28,6 +28,12 @@ Route::middleware('auth')->group(function () {
 
 Route::get('top', [PostsController::class, 'index']);
 
+Route::post('post/store', [PostsController::class, 'store']);
+
+Route::post('post/update', [PostsController::class, 'update']);
+
+Route::get('post/{id}/destroy', [PostsController::class, 'destroy']);
+
 Route::get('profile', [ProfileController::class, 'profile']);
 
 Route::get('search', [UsersController::class, 'index']);
