@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 use Auth;
 
 class UsersController extends Controller
@@ -30,9 +31,16 @@ class UsersController extends Controller
     }
 
     public function followList(){
-        return view('follows.followList');
+        $users_id=User::whereIn('id',Auth::user()->follows()->pluck('followed_id'))->get();
+        $follow_id=Auth::user()->follows()->pluck('followed_id');
+        $followLists=Post::with('user')->whereIn('user_id',$follow_id)->latest()->get();
+        return view('follows.followList',['followLists'=>$followLists,'users_id'=>$users_id]);
     }
+
     public function followerList(){
-        return view('follows.followerList');
+        $users_id=User::whereIn('id',Auth::user()->follower()->pluck('following_id'))->get();
+        $follow_id=Auth::user()->follower()->pluck('following_id');
+        $followLists=Post::with('user')->whereIn('user_id',$follow_id)->latest()->get();
+        return view('follows.followerList',['followLists'=>$followLists,'users_id'=>$users_id]);
     }
 }

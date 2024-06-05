@@ -34,7 +34,9 @@ Route::post('post/update', [PostsController::class, 'update']);
 
 Route::get('post/{id}/destroy', [PostsController::class, 'destroy']);
 
-Route::get('profile', [ProfileController::class, 'profile']);
+Route::get('profile', [ProfileController::class, 'edit'])->name('auth.profile');
+
+Route::get('{userId}/profile', [ProfileController::class, 'show'])->name('other.profile');
 
 Route::get('search', [UsersController::class, 'index']);
 

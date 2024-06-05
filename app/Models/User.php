@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     // authがフォローされる
     public function follower(){
-        return $this->belongsToMany(User::class,'follows','following_id','followed_id');
+        return $this->belongsToMany(User::class,'follows','followed_id','following_id');
     }
 
     // フォローされているかどうか
