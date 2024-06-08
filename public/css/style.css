@@ -1,6 +1,8 @@
 @charset "utf-8";
 
-html {}
+html {
+    font-size: 62.5%;
+}
 
 body {}
 
@@ -25,13 +27,32 @@ header {
 }
 
 #head {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 
 #head_auth {
-    width: 30%;
+    width: 20%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+h1 img {
+    width: 20rem;
+    /* height: 20rem; */
+    object-fit: contain;
+}
+
+#title_name {}
+
+#title_name p {}
+
+.icon {
+    width: 7rem;
+    height: 7rem;
+    object-fit: contain;
+    border-radius: 45px;
 }

@@ -1,7 +1,7 @@
         <div id="head">
-            <h1><a href="top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
+            <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}"></a></h1>
             <div id="head_auth">
-                <div id="">
+                <div id="title_name">
                     <p>{{ Auth::user()->username }}さん</p>
                 </div>
                 <div class="accordion" id="accordionExample">
@@ -14,6 +14,6 @@
                         </ul>
                     </div>
                 </div>
-                <img src="{{ asset('storage/'.Auth::user()->images) }}">
+                <img class="icon" src="{{ asset('storage/'.Auth::user()->images) }}">
             </div>
         </div>
